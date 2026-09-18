@@ -73,6 +73,7 @@ def train_and_evaluate(path: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    print("Training model...")
     project_root = Path(__file__).resolve().parents[2]
     metrics = train_and_evaluate(project_root / "data" / "raw" / "WineQT.csv")
 
