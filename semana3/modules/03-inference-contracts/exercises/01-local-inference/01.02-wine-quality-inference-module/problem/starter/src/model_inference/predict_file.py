@@ -8,10 +8,11 @@
 import argparse
 import os
 import pandas as pd
+import sys
 
 from model_inference.contracts import WineQualityRequest
 from model_inference.preprocess import preprocess_wine_request, PREPROCESSING_VERSION
-from model_inference.inference import load_wine_quality_model, infer_wine_quality
+from model_inference.inference import load_wine_quality_model, infer_wine_quality, DEFAULT_MODEL_PATH
 
 
 def read_csv(path):
@@ -26,6 +27,7 @@ def read_csv(path):
 			l.append(WineQualityRequest(**values))
 		except:
 			raise Exception(f'[X] ERROR: Invalid value detected at line {id_row}')
+			# sys.exit(2)
 
 	return l
 
@@ -37,10 +39,13 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Prediction of wines')
 	parser.add_argument('--input', help='Input file', required=True)
 	parser.add_argument('--output', help='Output file', required=True)
+	parser.add_argument('--model', help='Model', default=DEFAULT_MODEL_PATH)
 	args = parser.parse_args()
 	
 	print(f'[*] Input file: {args.input}')
 	print(f'[*] Output file: {args.output}')
+	if args.model != None:
+		print(f'[*] Model file: {args.model}')
 
 	# Read input csv
 	l = read_csv(args.input)
@@ -53,7 +58,7 @@ if __name__ == "__main__":
 		pre_l.append(new_elem)
 
 	# Execute model
-	model = load_wine_quality_model()
+	model = load_wine_quality_model(args.model)
 	result_list = []
 	num_elem = 0
 	for elem in pre_l:

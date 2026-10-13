@@ -10,11 +10,11 @@ import numpy as np
 # CHANGE TO DEFAULT PATH
 DEFAULT_MODEL_PATH = "../../assets/model/wine_quality_classifier.joblib"
 
-def load_wine_quality_model():
+def load_wine_quality_model(path):
     
-    if not os.path.exists(DEFAULT_MODEL_PATH):
+    if not os.path.exists(path):
         raise Exception("[X] ERROR: Unable to load model. Check path")
-    model = joblib.load(DEFAULT_MODEL_PATH)
+    model = joblib.load(path)
     return model
 
 
