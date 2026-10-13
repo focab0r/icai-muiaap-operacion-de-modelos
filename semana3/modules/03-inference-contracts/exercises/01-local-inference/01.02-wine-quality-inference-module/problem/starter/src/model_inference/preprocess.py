@@ -2,7 +2,7 @@
 
 from model_inference.contracts import WineQualityRequest
 
-PREPROCESSING_VERSION = 1.0
+PREPROCESSING_VERSION = "wine-red-features-v1"
 
 # Este contrato se entrega ya decidido: no cambies ni los nombres ni el orden.
 FEATURE_NAMES = (

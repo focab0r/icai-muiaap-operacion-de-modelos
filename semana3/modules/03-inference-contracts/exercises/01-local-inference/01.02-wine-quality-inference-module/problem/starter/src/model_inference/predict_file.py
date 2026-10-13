@@ -25,9 +25,9 @@ def read_csv(path):
 	for id_row, values in d.items():
 		try:
 			l.append(WineQualityRequest(**values))
-		except:
-			raise Exception(f'[X] ERROR: Invalid value detected at line {id_row}')
-			# sys.exit(2)
+		except Exception as e:
+			sys.stderr.write(f'[X] ERROR: Invalid value detected at line {id_row} with sample ID {values["sample_id"]} and error [{e}]')
+			sys.exit(2)
 
 	return l
 
