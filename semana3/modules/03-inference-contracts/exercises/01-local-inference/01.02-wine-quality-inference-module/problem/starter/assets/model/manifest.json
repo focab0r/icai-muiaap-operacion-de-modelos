@@ -1,0 +1,12 @@
+{
+    "estimator": "RandomForestClassifier(class_weight=\"balanced_subsample\", max_depth=8,  min_samples_leaf=2, n_estimators=200, random_state=42)",
+    "feature_names": ["fixed_acidity", "volatile_acidity", "citric_acid", "residual_sugar", "chlorides", "free_sulfur_dioxide", "total_sulfur_dioxide", "density", "ph", "sulphates", "alcohol"],
+    "model_version": "wine-quality-rf-v1",
+    "labels" : {
+        "needs_review": 0.1,
+        "good": 0.8,
+        "excellent": 1 
+    },
+    "schema_version": "1.0",
+    "preprocessing_version": "1.0"
+}
