@@ -29,7 +29,7 @@ class LLMSimulado:
     def completar(self, mensajes, herramientas):
         ultimo = mensajes[-1]
         if ultimo["role"] == "tool":
-            resultado = json.loads(ultimo["content"])
+            resultado = ultimo["content"]
             if resultado.get("ok"):
                 texto = "La probabilidad de impago es {:.1f}%. Decision: {}.".format(
                     resultado["probabilidad_impago"] * 100, resultado["decision"]
