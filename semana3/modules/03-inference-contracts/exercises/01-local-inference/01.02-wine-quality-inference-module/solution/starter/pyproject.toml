@@ -1,11 +1,10 @@
 [project]
-name = "operacion-modelos-muiaap"
+name = "wine-inference-starter"
 version = "0.1.0"
-description = "Material reproducible de Operación de Modelos para MUIAAp."
-readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "joblib>=1.4,<2.0",
+    "pandas>=3.0.6",
     "pydantic>=2.10,<3.0",
     "scikit-learn>=1.5,<2.0",
 ]
@@ -21,15 +20,11 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = [
-    "modules/03-inference-contracts/solutions/01.02-wine-quality-inference-module/src/model_inference",
-]
+packages = ["src/model_inference"]
 
 [tool.pytest.ini_options]
-pythonpath = [
-    "modules/03-inference-contracts/solutions/01.02-wine-quality-inference-module/src",
-]
-testpaths = ["modules/03-inference-contracts/solutions/01.02-wine-quality-inference-module/tests"]
+pythonpath = ["src"]
+testpaths = ["tests"]
 
 [tool.ruff]
 target-version = "py311"

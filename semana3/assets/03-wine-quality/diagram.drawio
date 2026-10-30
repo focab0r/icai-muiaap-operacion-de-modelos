@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="ioKHIjBIwpBk4Hsn4z1q">
+    <mxGraphModel dx="701" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="R4MoxlbZUig2p-26RR7d-22" edge="1" parent="1" source="R4MoxlbZUig2p-26RR7d-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="R4MoxlbZUig2p-26RR7d-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="385.0000000000001" as="sourcePoint" />
+            <mxPoint x="220" y="384.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R4MoxlbZUig2p-26RR7d-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="CSV" vertex="1">
+          <mxGeometry height="60" width="60" x="50" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="R4MoxlbZUig2p-26RR7d-27" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Drop sample_id" vertex="1">
+          <mxGeometry height="80" width="80" x="390" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="R4MoxlbZUig2p-26RR7d-31" edge="1" parent="1" source="R4MoxlbZUig2p-26RR7d-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="R4MoxlbZUig2p-26RR7d-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R4MoxlbZUig2p-26RR7d-30" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;div align=&quot;left&quot;&gt;- sample_id&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- fixed_acidity&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- volatile_acidity&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- citric_acid&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- residual_sugar&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- chlorides&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- free_sulfur_dioxide&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- total_sulfur_dioxide&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- density&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- ph&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- sulphates&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;- alcohol&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="190" x="160" y="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

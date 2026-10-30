@@ -18,7 +18,7 @@ def test_preprocess_preserves_feature_order() -> None:
 
     features = preprocess_wine_request(request)
 
-    assert features.as_vector() == [
+    assert features == [
         1.0,
         0.5,
         0.2,
