@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 from typing import Any
 
+from model_ui import gateway
 from model_ui.contracts import UiState
 from model_ui.controller import PredictionController
 from model_ui.gateway import (
@@ -73,16 +74,47 @@ def collect_values(st: Any) -> tuple[bool, dict[str, float]]:
     return submitted, values
 
 
-def get_cached_gateway(st: Any, bundle_value: str | None) -> InferenceGateway:
-    """TODO: usa `st.cache_resource` sobre el gateway, no sobre la respuesta."""
 
-    raise NotImplementedError("TODO: cachea el gateway heredado de S5")
+def get_cached_gateway(st: Any, bundle_value: str | None) -> InferenceGateway:
+    """usa `st.cache_resource` sobre el gateway, no sobre la respuesta."""
+
+    gateway_loader = st.cache_resource(build_gateway)
+    return gateway_loader(bundle_value)
+
 
 
 def render_state(st: Any, state: UiState, target: Any | None = None) -> None:
-    """TODO: presenta idle/loading/success/error en un target de Streamlit."""
+    """presenta idle/loading/success/error en un target de Streamlit."""
+    if state.phase == "idle":
+        st.info("Completa el formulario y pulsa «Ejecutar inferencia».")
+        return
 
-    raise NotImplementedError("TODO: renderiza el estado sin mostrar excepciones")
+    elif state.phase == "loading":
+        with st.status("Validando la muestra y ejecutando el modelo…", expanded=False):
+            st.write("La pantalla reserva esta zona; el formulario no desaparece.")
+        return
+
+    elif state.phase == "error":
+        st.error(state.error.title)
+        st.write(state.error.message)
+        st.info(state.error.recovery)
+        st.caption(f"Request ID: {state.error.request_id}")
+        return
+
+    elif state.phase == "success":
+        st.success(state.view.quality_label)
+        category, confidence, latency = st.columns(3)
+        category.metric("Resultado", state.view.quality_label)
+        confidence.metric("Confianza", f"{state.view.confidence:.0%}")
+        latency.metric("Latencia", f"{state.view.latency_ms:.0f} ms")
+        with st.expander("Trazabilidad"):
+            st.json(
+                {
+                    "model_version": "wine-quality-rf-demo-v1",
+                    "preprocessing_version": "wine-red-features-v1",
+                    "request_id": state.request_id,
+                }
+            )
 
 
 def main() -> None:
