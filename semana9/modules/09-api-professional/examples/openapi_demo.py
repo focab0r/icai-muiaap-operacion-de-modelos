@@ -61,6 +61,10 @@ def create_score(
                     "summary": "Menor de edad: 422",
                     "value": {"age": 16, "income": 1},
                 },
+                "no_income": {
+                    "summary": "No hay campo income",
+                    "value": {"age": 20},
+                },
             }
         ),
     ],
